@@ -15,13 +15,13 @@ window.addEventListener(`load`, ()=>{
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(posicion =>{
 
-            //ubicacion actual
+            //latitud y longitud de la ubicacion actual
             lat= posicion.coords.latitude;
             lon = posicion.coords.longitude;
 
             const url= `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=es&units=metric&appid=86805e66e299b177d25fb974b3299abb`;
 
-            //llamada por nombre de ciudad
+            //(pendiente) llamada por nombre de ciudad
             /* const url2 = `https://api.openweathermap.org/data/2.5/weather?q=Madrid&lang=es&units=metric&appid=86805e66e299b177d25fb974b3299abb`;
             console.log(url2) */
              
@@ -38,6 +38,7 @@ window.addEventListener(`load`, ()=>{
 
                     vientoVelocidad.textContent = `${datos.wind.speed} m/s`;
                     
+                    //cambia de icono por estado del clima
                     switch (datos.weather[0].main) {
                         case 'Thunderstorm':
                           iconoAnimado.src='./animated/thunder.svg'
