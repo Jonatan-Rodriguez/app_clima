@@ -1,0 +1,19 @@
+{
+  "name": "app_clima",
+  "version": "1.0.0",
+  "description": "Aplicacion del clima",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonatan-98/app_clima.git"
+  },
+  "author": "Jonatan Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonatan-98/app_clima/issues"
+  },
+  "homepage": "https://github.com/jonatan-98/app_clima#readme"
+}
