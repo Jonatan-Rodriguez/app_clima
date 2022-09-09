@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>app clima</title>
 </head>
 <body>
-    <header class="header">
+    <header class="header glassmorphism">
         <!-- logo -->
         <div class="logo"><img src="" alt="logo"></div>
         <!-- busqueda -->
@@ -26,30 +27,35 @@
         </label>
     </header>
     <main>
-
+        <!-- ---- card del clima ----- -->
+        <div class="card-clima glass">
+            <div class="card-clima__ubi"><h2 id="ubicacion"></h2></div>
+            <div class="card-clima__ico"><img id="iconoAnimado" src="" alt="imagen del clima"></div>
+            <div class="card-clima__temp"><h1 id="temperaturaValor"></h1></div>
+            <div class="card-clima__desc"><h2 id="temperaturaDescripcion"></h2></div>
+        </div>
+        <!-- ----- caja temperatura maxima ----- -->
+        <div class="max-temp glass">
+            <div class="max-temp__temp"><h3 id="tempMax"></h3></div>
+            <div class="max-temp__text"><h3 id="textMax"></h3></div>
+        </div>
+        <!-- ---- caja temperatura minima ----- -->
+        <div class="min-temp glass">
+            <div class="min-temp__temp"><h3 id="tempMin"></h3></div>
+            <div class="min-temp__text"><h3 id="textMin"></h3></div>
+        </div>
+        <!-- ----- caja de descripcion ------ -->
+        <div class="descripcion glass">
+            <div class="descripcion__sensacion"><h3 id="descSensacion"></h3></div>
+            <div class="descripcion__humedad"><h3 id="descHumedad"></h3></div>
+            <div class="descripcion__viento"><h3 id="vientoVelocidad"></h3></div>
+            <div class="descripcion__presion"><h3 id="descPresion"></h3></div>
+        </div>
     </main>
-    <footer>
-
+    <footer class="footer glassmorphism">
+        <div class="footer_text"><p>created with <iconify-icon icon="line-md:heart-filled"></iconify-icon> by Jona</p></div>
     </footer>
-
-    <!-- <div id="contenedor">
-
-        <div id="caja1">
-            <h1 id="temperaturaValor"></h1>
-            <h1 id="temperaturaDescripcion"></h1>
-
-        </div>
-        <div id="caja2">
-            <h2 id="ubicacion"></h2>
-            <img id="iconoAnimado" src="" alt="" height="128" width="128">
-
-        </div>
-        <div id="caja3">
-            <h3>Velocidad del viento</h3>
-            <h1 id="vientoVelocidad"></h1>
-
-        </div>
-    </div>
-    <script src="./js/app.js"></script> -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 </html>

@@ -37,40 +37,40 @@ window.addEventListener(`load`, ()=>{
 
         ubicacion.textContent = datos.name;
 
-        vientoVelocidad.textContent = `${datos.wind.speed} m/s`;
+        /* vientoVelocidad.textContent = `${datos.wind.speed} m/s`; */
                     
         //cambia de icono por estado del clima
         switch (datos.weather[0].main) {
           case 'Thunderstorm':
-            iconoAnimado.src='./animated/thunder.svg'
+            iconoAnimado.src='../animated/thunder.svg'
             console.log('TORMENTA');
           break;
           case 'Drizzle':
-            iconoAnimado.src='./animated/rainy-2.svg'
+            iconoAnimado.src='../animated/rainy-2.svg'
             console.log('LLOVIZNA');
           break;
           case 'Rain':
-            iconoAnimado.src='./animated/rainy-7.svg'
+            iconoAnimado.src='../animated/rainy-7.svg'
             console.log('LLUVIA');
           break;
           case 'Snow':
-            iconoAnimado.src='./animated/snowy-6.svg'
+            iconoAnimado.src='../animated/snowy-6.svg'
             console.log('NIEVE');
           break;                        
           case 'Clear':
-            iconoAnimado.src='./animated/day.svg'
+            iconoAnimado.src='../animated/day.svg'
             console.log('LIMPIO');
           break;
           case 'Atmosphere':
-            iconoAnimado.src='./animated/weather.svg'
+            iconoAnimado.src='../animated/weather.svg'
             console.log('ATMOSFERA');
           break;  
           case 'Clouds':
-            iconoAnimado.src='./animated/cloudy-day-1.svg'
+            iconoAnimado.src='../animated/cloudy-day-1.svg'
             console.log('NUBES');
           break;  
           default:
-            iconoAnimado.src='./animated/cloudy-day-1.svg'
+            iconoAnimado.src='../animated/cloudy-day-1.svg'
             console.log('por defecto');
           break;
         }
