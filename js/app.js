@@ -5,11 +5,14 @@ window.addEventListener(`load`, ()=>{
 
   let temperaturaValor = document.getElementById(`temperaturaValor`);
   let temperaturaDescripcion = document.getElementById(`temperaturaDescripcion`);
-  
   let ubicacion = document.getElementById(`ubicacion`);
   let iconoAnimado = document.getElementById(`iconoAnimado`);
-  
+  let tempMax = document.getElementById(`tempMax`);
+  let tempMin = document.getElementById(`tempMin`);
+  let descSensacion = document.getElementById(`descSensacion`);
+  let descHumedad = document.getElementById(`descHumedad`);
   let vientoVelocidad = document.getElementById(`vientoVelocidad`);
+  let descPresion = document.getElementById(`descPresion`);
 
   //pido la ubicacion actual
   if(navigator.geolocation){
@@ -28,7 +31,7 @@ window.addEventListener(`load`, ()=>{
       fetch(url)
       .then( response => { return response.json() })
       .then(datos => {
-        console.log(datos);
+
         let temp = Math.round(datos.main.temp);
         temperaturaValor.textContent = `${temp} °C`
         
@@ -37,7 +40,21 @@ window.addEventListener(`load`, ()=>{
 
         ubicacion.textContent = datos.name;
 
-        /* vientoVelocidad.textContent = `${datos.wind.speed} m/s`; */
+        let max = Math.round(datos.main.temp_max);
+        tempMax.textContent = `${max} °C`
+
+        let min = Math.round(datos.main.temp_min);
+        tempMin.textContent = `${min} °C`
+
+        vientoVelocidad.textContent = `Vel. viento: ${datos.wind.speed} m/s`;
+
+        descHumedad.textContent = `Humedad: ${datos.main.humidity}%`
+
+        let sensacion = Math.round(datos.main.feels_like)
+        descSensacion.textContent = `Sensacion termica: ${sensacion} °`
+
+        let presion = datos.main.pressure
+        descPresion.textContent = `Presion admosferica: ${presion}`
                     
         //cambia de icono por estado del clima
         switch (datos.weather[0].main) {
@@ -76,9 +93,9 @@ window.addEventListener(`load`, ()=>{
         }
                     
       })
-        .catch( error => {
-          console.log(error)
-        })
+      .catch( error => {
+        console.log(error)
+      })
     })
   }
 }) 

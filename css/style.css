@@ -1,34 +1,97 @@
-::root{
-    --colorPrimario : #495057;
+:root{
+  --colorPrimario : #2d3135;
 }
 
 body{
-    background: var(--colorPrimario)
+  background: var(--colorPrimario);
 }
 
 /* -----hedaer---- */
 .header{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 100px;
+  width: 100%;
+}
+
+.contenedor--header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 /* -----footer----- */
+.contenedor--footer{
+  max-width: 90%;
+  margin: 0 auto;
+}
 .footer_text{
   display: flex;
   justify-content: center;
 }
 
+/* --- main ---- */
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* ---- contenedor ----- */
+
+.contenedor{
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* --- card del clima ---- */
+.card-clima{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40%;
+  
+}
+
+/* ---- temperatura max y min ----- */
+.max-temp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: 20%;
+}
+
+.min-temp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: 20%;
+}
+
+/* ----- caja de descripcion ---- */
+.descripcion{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  width: 40%;
+}
+
+.white{
+  display: block;
+  background: white;
+  border-radius: 10px;
+}
 /* -----glassmorphism---- */
 .glass{
-background: rgba( 255, 255, 255, 0.4 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 6px );
--webkit-backdrop-filter: blur( 6px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba( 255, 255, 255, 0.4 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .glassmorphism{
@@ -38,109 +101,109 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   -webkit-backdrop-filter: blur( 6px );
   /* border-radius: 10px; */
   border: 1px solid rgba( 255, 255, 255, 0.18 );
-  }
+}
 
 /*  INPUT de busqueda*/
 /* From uiverse.io by @alexruix */
 .group {
-    display: flex;
-    line-height: 28px;
-    align-items: center;
-    position: relative;
-    max-width: 190px;
-   }
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 190px;
+}
    
-   .input {
-    width: 100%;
-    height: 40px;
-    line-height: 28px;
-    padding: 0 1rem;
-    padding-left: 2.5rem;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    outline: none;
-    background-color: #f3f3f4;
-    color: #0d0c22;
-    transition: .3s ease;
-   }
+.input {
+  width: 100%;
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: .3s ease;
+}
    
-   .input::placeholder {
-    color: #9e9ea7;
-   }
-   
-   .input:focus, input:hover {
-    outline: none;
-    border-color: rgba(234,76,137,0.4);
-    background-color: #fff;
-    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
-   }
-   
-   .icon {
-    position: absolute;
-    left: 1rem;
-    fill: #9e9ea7;
-    width: 1rem;
-    height: 1rem;
-   }
+.input::placeholder {
+  color: #9e9ea7;
+}
 
-  /*  MENU */
-  /* From uiverse.io by @Ali-Tahmazi99 */
+.input:focus, input:hover {
+  outline: none;
+  border-color: rgba(234,76,137,0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #9e9ea7;
+  width: 1rem;
+  height: 1rem;
+}
+
+/*  MENU */
+/* From uiverse.io by @Ali-Tahmazi99 */
 input[type = "checkbox"] {
-    -webkit-appearance: none;
-    display: none;
-    visibility: hidden;
-  }
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
   
-  .bar {
-    position: relative;
-    cursor: pointer;
-    width: 50px;
-    height: 40px;
-  }
+.bar {
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+}
+
+.bar span {
+  position: absolute;
+  width: 45px;
+  height: 7px;
+  background: #f1faee;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+
+.bar span.top {
+  top: 0;
+}
+
+.bar span.middle {
+  top: 17px;
+}
+
+.bar span.bottom {
+  bottom: 0;
+}
+
+input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 48px;
+  left: 5px;
+}
+
+input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 48px;
+  bottom: -1px;
+  box-shadow: 0 0 10px #495057;
+}
+
+input[type]:checked ~ span.middle {
+  transform: translateX(-20px);
+  opacity: 0;
+}
   
-  .bar span {
-    position: absolute;
-    width: 45px;
-    height: 7px;
-    background: #f1faee;
-    border-radius: 100px;
-    display: inline-block;
-    transition: 0.3s ease;
-    left: 0;
-  }
-  
-  .bar span.top {
-    top: 0;
-  }
-  
-  .bar span.middle {
-    top: 17px;
-  }
-  
-  .bar span.bottom {
-    bottom: 0;
-  }
-  
-  input[type]:checked ~ span.top {
-    transform: rotate(45deg);
-    transform-origin: top left;
-    width: 48px;
-    left: 5px;
-  }
-  
-  input[type]:checked ~ span.bottom {
-    transform: rotate(-45deg);
-    transform-origin: top left;
-    width: 48px;
-    bottom: -1px;
-    box-shadow: 0 0 10px #495057;
-  }
-  
-  input[type]:checked ~ span.middle {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-   
    
    
    
