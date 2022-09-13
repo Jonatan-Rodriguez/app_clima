@@ -15,27 +15,38 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
-  max-width: 90%;
+  height: 60px;
+  max-width: 80%;
   margin: 0 auto;
 }
 
 /* -----footer----- */
 .contenedor--footer{
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
 }
-.footer_text{
+
+.footer{
   display: flex;
   justify-content: center;
+  
+}
+.footer_text{
+  
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* --- main ---- */
 .main{
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 90%;
+  display: grid;
+  grid-template-areas: 'clima temp-max temp-min'
+                        'clima desc desc';
+  grid-template-columns: 50% auto auto;
+  grid-template-rows: 35% auto;
+  max-width: 80%;
   margin: 0 auto;
+  padding: 20px 0;
+  gap: 20px;
 }
 
 /* ---- contenedor ----- */
@@ -47,42 +58,69 @@ body{
 
 /* --- card del clima ---- */
 .card-clima{
+  grid-area:clima;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 40%;
-  
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  /* height: 500px; */
+}
+
+.card-clima__ubi h2{
+  font-size: 30px;
+  margin: 0;
+}
+
+.card-clima__ico {
+  width: 70%;
+  margin: 0;
+}
+
+.card-clima__ico img{
+  width: 100%;
+  margin: 0;
+}
+
+.card-clima__temp h1{
+  font-size: 30px;
+  margin: 0;
+}
+
+.card-clima__desc h2{
+  font-size: 20px;
+  margin: 0;
 }
 
 /* ---- temperatura max y min ----- */
 .max-temp{
+  grid-area: temp-max;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
-  height: 20%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .min-temp{
+  grid-area: temp-min;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
-  height: 20%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* ----- caja de descripcion ---- */
 .descripcion{
+  grid-area: desc;
   display: flex;
   flex-direction: column;
   justify-content:space-around;
-  width: 40%;
 }
 
 .white{
   display: block;
   background: white;
   border-radius: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 /* -----glassmorphism---- */
 .glass{
@@ -100,7 +138,7 @@ body{
   backdrop-filter: blur( 6px );
   -webkit-backdrop-filter: blur( 6px );
   /* border-radius: 10px; */
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 }
 
 /*  INPUT de busqueda*/

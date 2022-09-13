@@ -11,7 +11,7 @@ window.addEventListener(`load`, ()=>{
   let tempMin = document.getElementById(`tempMin`);
   let descSensacion = document.getElementById(`descSensacion`);
   let descHumedad = document.getElementById(`descHumedad`);
-  let vientoVelocidad = document.getElementById(`vientoVelocidad`);
+  let descViento = document.getElementById(`descViento`);
   let descPresion = document.getElementById(`descPresion`);
 
   //pido la ubicacion actual
@@ -46,7 +46,7 @@ window.addEventListener(`load`, ()=>{
         let min = Math.round(datos.main.temp_min);
         tempMin.textContent = `${min} °C`
 
-        vientoVelocidad.textContent = `Vel. viento: ${datos.wind.speed} m/s`;
+        descViento.textContent = `Vel. viento: ${datos.wind.speed} m/s`;
 
         descHumedad.textContent = `Humedad: ${datos.main.humidity}%`
 
