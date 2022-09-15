@@ -1,10 +1,45 @@
-:root{
-  --colorPrimario : #2d3135;
+/* --- normalizacion ----- */
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
 }
 
 body{
   background: var(--colorPrimario);
+  font-family: var(--fuentePrimaria);
 }
+
+/* ------ variables ------ */
+:root{
+  /* colors */
+  --colorPrimario : linear-gradient(to left top, rgb(249, 168, 212), rgb(216, 180, 254), rgb(129, 140, 248));
+  --colorSecundario:rgb(94, 109, 246);
+  --colorTexto:black;
+  
+  /* spacings */
+  --espacioLargo:2.5rem;
+  --espacioBase:2.0rem;
+  --espacioChico:1.5rem;
+  --espacioContenedor: 75%;
+
+  /* font fasmily */
+  --fuentePrimaria : 'Plus Jakarta Sans', sans-serif;
+  --fuenteSecundaria:'roboto slab', serif;
+  
+  /* font sizes */
+  --fuenteLargo:7.0em;
+  --fuenteMedia:4.0em;
+  --fuenteBase:2.0em;
+  --fuenteChica:1.6em;
+
+}
+
+
 
 /* -----hedaer---- */
 .header{
@@ -16,24 +51,29 @@ body{
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  max-width: 80%;
+  max-width: var(--espacioContenedor);
   margin: 0 auto;
 }
 
 /* -----footer----- */
 .contenedor--footer{
-  max-width: 80%;
+  max-width: var(--espacioContenedor);
   margin: 0 auto;
 }
 
 .footer{
   display: flex;
   justify-content: center;
-  
+  justify-items: center;
 }
 .footer_text{
-  
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--colorSecundario);
+  font-family: var(--fuentePrimaria);
+}
+
+.footer_text{
+  font-size: var(--fuenteChica);
+  margin: 0;
 }
 
 /* --- main ---- */
@@ -43,17 +83,10 @@ body{
                         'clima desc desc';
   grid-template-columns: 50% auto auto;
   grid-template-rows: 35% auto;
-  max-width: 80%;
+  max-width: var(--espacioContenedor);
   margin: 0 auto;
-  padding: 20px 0;
-  gap: 20px;
-}
-
-/* ---- contenedor ----- */
-
-.contenedor{
-  max-width: 90%;
-  margin: 0 auto;
+  padding: var(--espacioBase) 0;
+  gap: var(--espacioBase);
 }
 
 /* --- card del clima ---- */
@@ -62,17 +95,16 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  /* height: 500px; */
+  font-family: var(--fuentePrimaria);
 }
 
 .card-clima__ubi h2{
-  font-size: 30px;
-  margin: 0;
+  font-size: var(--fuenteMedia);
+  margin-top: var(--espacioChico);
 }
 
 .card-clima__ico {
-  width: 70%;
+  width: 60%;
   margin: 0;
 }
 
@@ -82,13 +114,14 @@ body{
 }
 
 .card-clima__temp h1{
-  font-size: 30px;
-  margin: 0;
+  font-size: var(--fuenteLargo);
+  margin-bottom: var(--espacioChico);
+
 }
 
 .card-clima__desc h2{
-  font-size: 20px;
-  margin: 0;
+  font-size: var(--fuenteMedia);
+  margin: var(--espacioChico) auto;
 }
 
 /* ---- temperatura max y min ----- */
@@ -97,7 +130,18 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  justify-content: center;
+  font-family: var(--fuentePrimaria);
+}
+
+.max-temp__temp{
+  font-size: var(--fuenteMedia);
+  margin: 0;
+}
+
+.max-temp__text{
+  font-size: var(--fuenteMedia);
+  margin: 0;
 }
 
 .min-temp{
@@ -105,7 +149,18 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  justify-content: center;
+  font-family: var(--fuentePrimaria);
+}
+
+.min-temp__temp{
+  font-size: var(--fuenteMedia);
+  margin: 0;
+}
+
+.min-temp__text{
+  font-size: var(--fuenteMedia);
+  margin: 0;
 }
 
 /* ----- caja de descripcion ---- */
@@ -113,15 +168,29 @@ body{
   grid-area: desc;
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content:space-evenly;
 }
 
-.white{
+.desc_white{
   display: block;
   background: white;
-  border-radius: 10px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  border-radius: 20px;
+  font-family: var(--fuentePrimaria);
+  margin: 0 var(--espacioChico);
+  padding: var(--espacioChico);
+  font-size: var(--fuenteBase);
 }
+
+/* ------ degrade ----- */
+.degrade{
+  background: linear-gradient( rgb(94, 109, 246), rgba(255, 255, 255, 0) 187.46%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
 /* -----glassmorphism---- */
 .glass{
   background: rgba( 255, 255, 255, 0.4 );
@@ -137,18 +206,15 @@ body{
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 6px );
   -webkit-backdrop-filter: blur( 6px );
-  /* border-radius: 10px; */
-  /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 }
 
 /*  INPUT de busqueda*/
-/* From uiverse.io by @alexruix */
 .group {
   display: flex;
   line-height: 28px;
   align-items: center;
   position: relative;
-  max-width: 190px;
+  width: 400px;
 }
    
 .input {
@@ -158,11 +224,12 @@ body{
   padding: 0 1rem;
   padding-left: 2.5rem;
   border: 2px solid transparent;
-  border-radius: 8px;
+  border-radius: 20px;
   outline: none;
   background-color: #f3f3f4;
   color: #0d0c22;
   transition: .3s ease;
+  font-family: var(--fuentePrimaria);
 }
    
 .input::placeholder {
@@ -171,7 +238,7 @@ body{
 
 .input:focus, input:hover {
   outline: none;
-  border-color: rgba(234,76,137,0.4);
+  border-color: var(--colorSecundario);
   background-color: #fff;
   box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
 }
@@ -185,7 +252,6 @@ body{
 }
 
 /*  MENU */
-/* From uiverse.io by @Ali-Tahmazi99 */
 input[type = "checkbox"] {
   -webkit-appearance: none;
   display: none;
