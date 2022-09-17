@@ -53,36 +53,28 @@ window.addEventListener(`load`, ()=>{
     //cambia de icono por estado del clima
     switch (data.weather[0].main) {
       case 'Thunderstorm':
-        iconoAnimado.src='./animated/thunder.svg'
-        console.log('TORMENTA');
+        iconoAnimado.src='./animated/thunder.svg';
       break;
       case 'Drizzle':
-        iconoAnimado.src='./animated/rainy-2.svg'
-        console.log('LLOVIZNA');
+        iconoAnimado.src='./animated/rainy-2.svg';
       break;
       case 'Rain':
-        iconoAnimado.src='./animated/rainy-7.svg'
-        console.log('LLUVIA');
+        iconoAnimado.src='./animated/rainy-7.svg';
       break;
       case 'Snow':
-        iconoAnimado.src='./animated/snowy-6.svg'
-        console.log('NIEVE');
+        iconoAnimado.src='./animated/snowy-6.svg';
       break;                        
       case 'Clear':
-        iconoAnimado.src='./animated/day.svg'
-        console.log('LIMPIO');
+        iconoAnimado.src='./animated/day.svg';
       break;
       case 'Atmosphere':
-        iconoAnimado.src='./animated/weather.svg'
-        console.log('ATMOSFERA');
+        iconoAnimado.src='./animated/weather.svg';
       break;  
       case 'Clouds':
-        iconoAnimado.src='./animated/cloudy-day-1.svg'
-        console.log('NUBES');
+        iconoAnimado.src='./animated/cloudy-day-1.svg';
       break;  
       default:
-        iconoAnimado.src='./animated/cloudy-day-3.svg'
-        console.log('por defecto');
+        iconoAnimado.src='./animated/cloudy-day-3.svg';
       break;
     }
   }
@@ -97,12 +89,35 @@ window.addEventListener(`load`, ()=>{
     loader.style.display = `none`;
   }
 
-  //fucion de menu
-  
+  //funcion de boton atras
+
+  let atras = document.getElementById(`atras`);
+
+  atras.addEventListener(`click`, () =>{
+
+    let ciudadAnterior = historialBusqueda[--contador];
+    
+    const url3 = `https://api.openweathermap.org/data/2.5/weather?q=${ciudadAnterior}&lang=es&units=metric&appid=86805e66e299b177d25fb974b3299abb`;
+
+    fetch(url3)
+      .then( response => { return response.json() })
+      .then(data3 => {
+        
+        peticiones(data3);
+
+        if(contador < 1){
+          atras.style.display = `none`;
+        }
+
+      });
+  });
+
 
   //funcion de busqueda por ciudad
   let entrada = document.getElementById(`entradaBuscador`)
   let buscador = document.getElementById(`botonBuscador`);
+  const historialBusqueda = [];
+  let contador = 0;
 
   buscador.addEventListener(`click`, () =>{
     const url2 = `https://api.openweathermap.org/data/2.5/weather?q=${entrada.value}&lang=es&units=metric&appid=86805e66e299b177d25fb974b3299abb`;
@@ -110,10 +125,14 @@ window.addEventListener(`load`, ()=>{
     fetch(url2)
       .then( response => { return response.json() })
       .then(data => { 
-        console.log(data);
         
         peticiones(data);
 
+        historialBusqueda.push(entrada.value);
+        contador ++;
+        
+        atras.style.display = `flex`;
+        
       });
 
   });
@@ -133,6 +152,8 @@ window.addEventListener(`load`, ()=>{
       .then(datos => {
 
         peticiones(datos);
+
+        historialBusqueda.push(datos.name);
         
         loader();
       })
