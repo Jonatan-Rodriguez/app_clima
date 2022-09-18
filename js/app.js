@@ -115,23 +115,7 @@ window.addEventListener(`load`, ()=>{
   // funcion de dark mode
   let switchDark = document.getElementById(`switch`);
 
-  localStorage.setItem(`modeDark`, false);
-
   let dark = true;
-
-  let modeDark = localStorage.getItem(`modeDark`);
-
-  if(modeDark == true){
-
-    body.style.background = `var(--colorSecundario)`;
-    dark = false;
-    localStorage.setItem(`modeDark`, true);
-    
-  }else{
-    body.style.background = `var(--colorPrimario)`;
-    dark = true;
-    localStorage.setItem(`modeDark`, false);
-  }
 
    switchDark.addEventListener(`click`, () =>{
 
