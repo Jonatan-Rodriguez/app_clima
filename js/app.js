@@ -112,9 +112,45 @@ window.addEventListener(`load`, ()=>{
       });
   });
 
+  // funcion de dark mode
+  let switchDark = document.getElementById(`switch`);
+
+  localStorage.setItem(`modeDark`, false);
+
+  let dark = true;
+
+  let modeDark = localStorage.getItem(`modeDark`);
+
+  if(modeDark == true){
+
+    body.style.background = `var(--colorSecundario)`;
+    dark = false;
+    localStorage.setItem(`modeDark`, true);
+    
+  }else{
+    body.style.background = `var(--colorPrimario)`;
+    dark = true;
+    localStorage.setItem(`modeDark`, false);
+  }
+
+   switchDark.addEventListener(`click`, () =>{
+
+    if(dark == true){
+
+      body.style.background = `var(--colorSecundario)`;
+      dark = false;
+      localStorage.setItem(`modeDark`, true);
+      
+    }else{
+      body.style.background = `var(--colorPrimario)`;
+      dark = true;
+      localStorage.setItem(`modeDark`, false);
+    }
+   });
+
 
   //funcion de busqueda por ciudad
-  let entrada = document.getElementById(`entradaBuscador`)
+  let entrada = document.getElementById(`entradaBuscador`);
   let buscador = document.getElementById(`botonBuscador`);
   const historialBusqueda = [];
   let contador = 0;

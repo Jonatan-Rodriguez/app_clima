@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>app clima</title>
 </head>
-<body id="body">
+<body id="body" class="body">
     <header class="header glassmorphism">
         <div class="contenedor--header">
             <!-- logo -->
@@ -26,20 +26,15 @@
                     </svg>
                 </button>
             </div>
-            <!-- menu -->
-            <label for="check" class="bar">
-                <input id="check" type="checkbox">
-            
-                <span class="top"></span>
-                <span class="middle"></span>
-                <span class="bottom"></span>
-                <div class="menu">
-                    
-                </div>
-            </label> 
+            <!-- ------ switch dark mode ------ -->
+            <label class="switch" >
+                <input type="checkbox" id="switch">
+                <span class="slider"></span>
+            </label>
         </div>     
     </header>  
     <main class="main">
+        <!-- ------- boton atras ------- -->
         <div class="atras" id="atras">
             <iconify-icon class="icoAtras" icon="akar-icons:arrow-left"></iconify-icon>
         </div>
