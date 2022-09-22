@@ -55,6 +55,21 @@ html{
   margin: 0 auto;
 }
 
+.logo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+}
+
+.logo img{
+  width: 40%;
+}
+
+.logo h3{
+  font-size: var(--fuenteChica);
+}
+
 /* -----footer----- */
 .contenedor--footer{
   max-width: var(--espacioContenedor);
