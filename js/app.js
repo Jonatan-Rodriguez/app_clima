@@ -140,9 +140,10 @@ window.addEventListener(`load`, ()=>{
   let contador = 0;
 
   buscador.addEventListener(`click`, () =>{
+    if(entrada.value != ""){
     const url2 = `https://api.openweathermap.org/data/2.5/weather?q=${entrada.value}&lang=es&units=metric&appid=86805e66e299b177d25fb974b3299abb`;
 
-    fetch(url2)
+      fetch(url2)
       .then( response => { return response.json() })
       .then(data => { 
         
@@ -154,7 +155,14 @@ window.addEventListener(`load`, ()=>{
         atras.style.display = `flex`;
         
       });
-
+    }else{
+      Swal.fire({
+        title: 'Error',
+        text: 'Ingrese una ciudad valida',
+        icon: 'error',
+        confirmButtonText: 'ok'
+      })
+    }
   });
 
   //pido la ubicacion actual
