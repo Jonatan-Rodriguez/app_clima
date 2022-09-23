@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jonatan-98/app_clima/issues"
   },
-  "homepage": "https://github.com/jonatan-98/app_clima#readme"
+  "homepage": "https://github.com/jonatan-98/app_clima#readme",
+  "dependencies": {
+    "sweetalert2": "^11.4.33"
+  }
 }
