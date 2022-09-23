@@ -10,7 +10,7 @@ html{
 }
 
 .body{
-  background: #212121e9;
+  background:var(--colorTerciario);
   font-family: var(--fuentePrimaria);
 }
 
@@ -19,6 +19,7 @@ html{
   /* colors */
   --colorPrimario : linear-gradient(to left top, rgb(249, 168, 212), rgb(216, 180, 254), rgb(129, 140, 248));
   --colorSecundario:linear-gradient(rgb(17, 24, 39), rgb(75, 85, 99));
+  --colorTerciario:#212121e9 ;
   --colorTexto:black;
   
   /* spacings */

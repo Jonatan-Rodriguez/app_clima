@@ -48,7 +48,7 @@ window.addEventListener(`load`, ()=>{
 
     let presion = data.main.pressure
     descPresion.textContent = "";
-    descPresion.textContent += `Presion admosferica: ${presion}`;
+    descPresion.textContent += `Presion admosferica: ${presion} hPa`;
                 
     //cambia de icono por estado del clima
     switch (data.weather[0].main) {
@@ -113,24 +113,32 @@ window.addEventListener(`load`, ()=>{
   });
 
   // funcion de dark mode
-  let switchDark = document.getElementById(`switch`);
 
-  let dark = true;
+   let switchDark = document.getElementById(`switch`);
 
-   switchDark.addEventListener(`click`, () =>{
+  switchDark.addEventListener(`click`, () =>{
 
-    if(dark == true){
+    if(switchDark.checked == true){
 
       body.style.background = `var(--colorSecundario)`;
-      dark = false;
-      localStorage.setItem(`modeDark`, true);
+      localStorage.setItem(`dark-mode`, `true`);
       
     }else{
       body.style.background = `var(--colorPrimario)`;
-      dark = true;
-      localStorage.setItem(`modeDark`, false);
+      localStorage.setItem(`dark-mode`, `false`);
     }
-   });
+  });
+
+  //obtenemos el valor actual del localStorage
+  function obtenemosDatos(){
+
+    if(localStorage.getItem(`dark-mode`) == `true`){
+      body.style.background = `var(--colorSecundario)`;
+      switchDark.checked = true;
+    }else{
+      body.style.background = `var(--colorPrimario)`;
+    }
+  }
 
 
   //funcion de busqueda por ciudad
@@ -184,6 +192,8 @@ window.addEventListener(`load`, ()=>{
         historialBusqueda.push(datos.name);
         
         loader();
+        
+        obtenemosDatos();
       })
 
       .catch( error => {
